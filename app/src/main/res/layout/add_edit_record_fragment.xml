@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="record"
+            type="ninja.seppli.bloody2.model.Record" />
+        <variable
+            name="controller"
+            type="ninja.seppli.bloody2.ui.fragments.AddEditRecord" />
+    </data>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true"
+        android:scrollbars="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:isScrollContainer="false"
+            android:scrollbars="vertical">
+
+            <TextView
+                android:id="@+id/add_edit_record_date_lbl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="50dp"
+                android:text="@string/add_edit_record_date_lbl"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/add_edit_record_date"
+                android:layout_width="122dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="10dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:inputType="date"
+                app:layout_constraintBottom_toBottomOf="@+id/add_edit_record_date_lbl"
+                app:layout_constraintEnd_toStartOf="@+id/editText6"
+                app:layout_constraintTop_toTopOf="@+id/add_edit_record_date_lbl"
+                app:layout_constraintVertical_bias="0.517" />
+
+            <TextView
+                android:id="@+id/add_edit_record_bloodsugar_lbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="45dp"
+                android:text="@string/add_edit_record_bloodsugard_lbl"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_edit_record_date_lbl" />
+
+            <EditText
+                android:id="@+id/add_edit_record_bloodsugar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:text="@{String.valueOf(record.bloodSugar)}"
+                app:layout_constraintBottom_toBottomOf="@+id/add_edit_record_bloodsugar_lbl"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/add_edit_record_bloodsugar_lbl" />
+
+            <TextView
+                android:id="@+id/add_edit_record_food_lbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="45dp"
+                android:text="@string/add_edit_record_food_lbl"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_edit_record_bloodsugar_lbl" />
+
+            <EditText
+                android:id="@+id/add_edit_record_food"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                app:layout_constraintBottom_toBottomOf="@+id/add_edit_record_food_lbl"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/add_edit_record_food_lbl" />
+
+            <TextView
+                android:id="@+id/add_edit_record_food_insulin_lbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="45dp"
+                android:text="@string/add_edit_record_food_insulin_lbl"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_edit_record_food_lbl" />
+
+            <EditText
+                android:id="@+id/add_edit_record_food_insulin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                app:layout_constraintBottom_toBottomOf="@+id/add_edit_record_food_insulin_lbl"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/add_edit_record_food_insulin_lbl" />
+
+            <TextView
+                android:id="@+id/add_edit_record_correction_lbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="45dp"
+                android:text="@string/add_edit_record_correction_lbl"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_edit_record_food_insulin_lbl" />
+
+            <EditText
+                android:id="@+id/add_edit_record_correction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                app:layout_constraintBottom_toBottomOf="@+id/add_edit_record_correction_lbl"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/add_edit_record_correction_lbl" />
+
+            <TextView
+                android:id="@+id/add_edit_record_note_lbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="45dp"
+                android:text="@string/add_edit_record_note_lbl"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_edit_record_correction_lbl" />
+
+            <EditText
+                android:id="@+id/editText6"
+                android:layout_width="81dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="5dp"
+                android:ems="10"
+                android:inputType="time"
+                app:layout_constraintBottom_toBottomOf="@+id/add_edit_record_date"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/add_edit_record_date" />
+
+            <EditText
+                android:id="@+id/add_edit_record_note"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="5dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:text="@{record.note}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_edit_record_note_lbl" />
+
+            <Button
+                android:id="@+id/add_edit_record_save_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:text="@string/add_edit_record_save_lbl"
+                android:onClick="@{controller::onSaveBtnClicked}"
+                app:layout_constraintBottom_toBottomOf="@+id/add_edit_record_cancel_btn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/add_edit_record_cancel_btn" />
+
+            <Button
+                android:id="@+id/add_edit_record_cancel_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/add_edit_record_cancel_lbl"
+                android:onClick="@{(v) -> controller.onCancelBtnClicked(v)}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_edit_record_note" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+</layout>

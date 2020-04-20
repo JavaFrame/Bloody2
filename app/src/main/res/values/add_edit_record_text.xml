@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="add_edit_record_date_lbl">Date</string>
+    <string name="add_edit_record_bloodsugard_lbl">Bloodsugar</string>
+    <string name="add_edit_record_food_lbl">Food</string>
+    <string name="add_edit_record_food_insulin_lbl">Food Insulin</string>
+    <string name="add_edit_record_correction_lbl">Correction</string>
+    <string name="add_edit_record_note_lbl">Note</string>
+    <string name="add_edit_record_save_lbl">Save</string>
+    <string name="add_edit_record_cancel_lbl">Cancel</string>
+</resources>
