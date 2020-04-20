@@ -47,8 +47,7 @@ class MainFragment : Fragment() {
         // floating button
         val floatingBtn = view.findViewById<FloatingActionButton>(R.id.floatingBtn)
         floatingBtn.setOnClickListener { view ->
-            Snackbar.make(view, "Here is a snackbar", Snackbar.LENGTH_LONG).setAction("Action", null).show()
-                findNavController().navigate(MainFragmentDirections.actionMainToAddEditRecord())
+            findNavController().navigate(MainFragmentDirections.actionMainToAddEditRecord())
         }
     }
 }
