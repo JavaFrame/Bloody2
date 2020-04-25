@@ -1,19 +1,16 @@
 package ninja.seppli.bloody2.ui.fragments
 
 import android.app.DatePickerDialog
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.DatePicker
-import androidx.databinding.DataBindingUtil
+import android.widget.Button
+import android.widget.EditText
 import androidx.navigation.fragment.findNavController
 
 import ninja.seppli.bloody2.R
-import ninja.seppli.bloody2.databinding.AddEditRecordFragmentBinding
-import ninja.seppli.bloody2.model.Record
 import java.util.*
 
 class AddEditRecord : Fragment() {
@@ -23,21 +20,24 @@ class AddEditRecord : Fragment() {
     }
 
     private lateinit var viewModel: AddEditRecordViewModel
-    private lateinit var binding: AddEditRecordFragmentBinding
+    private lateinit var date : EditText
+    private lateinit var saveBtn: Button
+    private lateinit var cancelBtn: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = AddEditRecordFragmentBinding.inflate(layoutInflater, container, false)
+        val view =  inflater.inflate(R.layout.add_edit_record_fragment, container, false);
+        date = view.findViewById(R.id.add_edit_record_date)
+        saveBtn = view.findViewById(R.id.add_edit_record_save_btn)
+        cancelBtn = view.findViewById(R.id.add_edit_record_cancel_btn)
 
-        binding.lifecycleOwner = activity
-        binding.controller = this
+        date.setOnFocusChangeListener { v, hasFocus ->  if(hasFocus) onDatePicker(v)}
+        saveBtn.setOnClickListener(this::onSaveBtnClicked)
+        cancelBtn.setOnClickListener(this::onCancelBtnClicked)
 
-        viewModel = ViewModelProviders.of(this).get(AddEditRecordViewModel::class.java)
-        binding.record = viewModel.record
-
-        return binding.root
+        return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -46,13 +46,15 @@ class AddEditRecord : Fragment() {
 
     fun onDatePicker(view: View) {
         val cal = Calendar.getInstance()
-        var date = DatePickerDialog.OnDateSetListener{
+        var dateListener = DatePickerDialog.OnDateSetListener{
             view, year, month, dayOfMonth ->
             val cal = Calendar.getInstance()
             cal.set(year, month, dayOfMonth)
+            viewModel.record.date = cal.time
         }
 
-        DatePickerDialog(context, date, cal.get(Calendar.YEAR), cal.get(Calendar.MONDAY), cal.get(Calendar.DAY_OF_MONTH)).show()
+        val picker = DatePickerDialog(context, dateListener, cal.get(Calendar.YEAR), cal.get(Calendar.MONDAY), cal.get(Calendar.DAY_OF_MONTH))
+        picker.show()
     }
 
     fun onSaveBtnClicked(view: View) {
@@ -63,4 +65,7 @@ class AddEditRecord : Fragment() {
         findNavController().navigate(AddEditRecordDirections.actionAddEditRecordToMain());
     }
 
+    private fun updateRecord() {
+        val r = viewModel.record
+    }
 }

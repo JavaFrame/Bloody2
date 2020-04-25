@@ -24,26 +24,26 @@ data class Record (
     /**
      * the actual blood sugar
      */
-    val bloodSugar: Float = 0f,
+    var bloodSugar: Float = 0f,
     /**
      * when it was recored
      */
-    val date:Date = Date(),
+    var date:Date = Date(),
     /**
      * If an how much was eaten<br/>
      * zero = nothing eaten
      */
-    val carbohydrates: Float = 0f,
+    var carbohydrates: Float = 0f,
     /**
      * How much insulin was injected for the food
      */
-    val carbohydratesInsulin: Float = 0f,
+    var carbohydratesInsulin: Float = 0f,
     /**
      * how much insulin was injected because of high blood sugar
      */
-    val correctionInsulin: Float = 0f,
+    var correctionInsulin: Float = 0f,
     /**
      * a note
      */
-    val note: String = ""
+    var note: String = ""
 )
